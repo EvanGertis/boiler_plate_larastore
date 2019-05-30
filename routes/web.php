@@ -20,5 +20,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/users', function(){
-    return view('/users/users'); 
+
+    $users = [
+        'testuser1',
+        'testuser2',
+        'testuser3'
+    ];
+    return view('/users/users', ['users' => $users]);
 });
