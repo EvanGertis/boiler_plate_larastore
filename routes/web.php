@@ -19,12 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/users', function(){
-
-    $users = [
-        'testuser1',
-        'testuser2',
-        'testuser3'
-    ];
-    return view('/users/users', ['users' => $users]);
-});
+Route::resource('users', 'UsersController');
