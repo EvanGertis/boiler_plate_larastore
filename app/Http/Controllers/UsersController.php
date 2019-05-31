@@ -14,9 +14,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = \App\User::all();
+        $users = User::all();
 
-        return view('/users/users', ['users' => $users]);
+        return view('/users/users', compact('users'));
     }
 
     /**
