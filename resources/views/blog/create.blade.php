@@ -3,7 +3,8 @@
 @section('content')
     <h1>Create Blog Page</h1>
 
-        <form action="">
+        <form method="post" action="/blog">
+            {{ csrf_field() }}
             <div>
                 <input type="text" placeholder="author" name="author">
             </div>
