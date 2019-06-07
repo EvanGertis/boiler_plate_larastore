@@ -24,4 +24,5 @@ Route::get('/contact', 'ContactController@index');
 Route::get('/schedule', 'ScheduleController@index');
 Route::get('/gallery', 'GalleryController@index');
 
+Route::resource('blog', "BlogController");
 Route::resource('users', 'UsersController');
