@@ -1,4 +1,4 @@
-@extends('users.layouts.layout')
+@extends('layouts.app')
 
 @section('content')
     <h1>Blog Page</h1>

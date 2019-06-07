@@ -18,7 +18,6 @@ class CreateBlogsTable extends Migration
             $table->string('author');
             $table->string('title');
             $table->string('post');
-            $table->timestamp('email_verified_at');
             $table->timestamps();
         });
     }
