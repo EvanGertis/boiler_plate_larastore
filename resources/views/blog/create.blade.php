@@ -5,13 +5,16 @@
 
         <form action="">
             <div>
-                <input type="text" placeholder="author">
+                <input type="text" placeholder="author" name="author">
             </div>
             <div>
-                <input type="text" placeholder="title">
+                <input type="text" placeholder="title" name="title">
             </div>
             <div>
-                <input type="post">
+                <textarea placeholder="post" name="post"></textarea>
+            </div>
+            <div>
+                <input type="submit" >
             </div>
         </form>
 
