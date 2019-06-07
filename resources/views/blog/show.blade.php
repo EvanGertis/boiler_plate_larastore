@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Blog Page</h1>
-
+    <a href="{{ route('blog.create') }}">Create new blog post</a>
     <ul>
         @foreach($blogs as $blog)
             <div class = "card">
