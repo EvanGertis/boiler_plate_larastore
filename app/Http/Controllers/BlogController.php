@@ -16,7 +16,7 @@ class BlogController extends Controller
     {
         $blogs = Blog::all();
 
-        return  view('/blog/show', compact('blogs'));
+        return  view('blog.showall', compact('blogs'));
     }
 
     /**
@@ -45,6 +45,8 @@ class BlogController extends Controller
         $blog->post = request('post');
 
         $blog->save();
+
+        return redirect('blog');
     }
 
     /**
@@ -55,7 +57,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        return view('blog.show', compact('blog'));
     }
 
     /**
@@ -66,7 +68,8 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+
+        return view('blog.edit', compact('blog'));
     }
 
     /**
