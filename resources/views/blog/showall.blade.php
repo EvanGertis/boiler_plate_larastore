@@ -6,6 +6,7 @@
     <ul>
         @foreach($blogs as $blog)
             <div class = "card">
+                <li><a href= 'blog/{{$blog->id}}'>view post</a></li>
                 <li>{{ $blog->author }}</li>
                 <li>{{ $blog->title }}</li>
                 <li>{{ $blog->post }}</li>
