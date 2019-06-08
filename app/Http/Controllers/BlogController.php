@@ -79,7 +79,13 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        Blog::updatecreate([
+            'author' => request('author'),
+            'title' => request('title'),
+            'post' => request('post')
+        ]);
+
+        return redirect('blog');
     }
 
     /**
@@ -90,6 +96,8 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+
+        return redirect('blog.showall');
     }
 }
