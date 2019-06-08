@@ -79,7 +79,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        Blog::updatecreate([
+        $blog->update([
             'author' => request('author'),
             'title' => request('title'),
             'post' => request('post')
@@ -98,6 +98,6 @@ class BlogController extends Controller
     {
         $blog->delete();
 
-        return redirect('blog.showall');
+        return redirect('/blog');
     }
 }
