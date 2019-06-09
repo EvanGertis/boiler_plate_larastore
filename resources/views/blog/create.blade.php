@@ -6,13 +6,13 @@
         <form method="post" action="/blog">
             {{ csrf_field() }}
             <div>
-                <input type="text" placeholder="author" name="author" required>
+                <input type="text" placeholder="author" name="author" value="{{ old('author')}}" required>
             </div>
             <div>
-                <input type="text" placeholder="title" name="title" required>
+                <input type="text" placeholder="title" name="title" value="{{ old('title')}}" required>
             </div>
             <div>
-                <textarea placeholder="post" name="post" required></textarea>
+                <textarea placeholder="post" name="post" required>{{ old('post')}}</textarea>
             </div>
             <div>
                 <input type="submit" >

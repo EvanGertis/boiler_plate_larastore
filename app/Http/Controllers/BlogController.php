@@ -38,13 +38,13 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'author' => 'required',
-            'title' => 'required',
-            'post' => 'required'
+        $attributes = request()->validate([
+            'author' => ['required', 'min:3'],
+            'title' => ['required', 'min:3'],
+            'post' => ['required', 'min:3']
         ]);
 
-        Blog::create(request(['author','title','post']));
+        Blog::create($attributes);
         return redirect('blog');
     }
 
@@ -80,13 +80,13 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        request()->validate([
-            'author' => 'required',
-            'title' => 'required',
-            'post' => 'required'
+        $attributes = request()->validate([
+            'author' => ['required', 'min:3'],
+            'title' => ['required', 'min:3'],
+            'post' => ['required', 'min:3']
         ]);
 
-        $blog->update(request(['author','title','post']));
+        $blog->update($attributes);
 
         return redirect('blog');
     }
