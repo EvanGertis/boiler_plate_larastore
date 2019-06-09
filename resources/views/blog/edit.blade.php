@@ -6,9 +6,9 @@
         {{method_field('PATCH')}}
         {{ csrf_field() }}
         <div class = "card">
-            <li><input type = "text" value= "{{ $blog->author }}" name="author"/></li>
-            <li><input type = "text" value= "{{ $blog->title }}" name="title"/></li>
-            <li><textarea name="post">{{ $blog->post }}</textarea></li>
+            <li><input type = "text" value= "{{ $blog->author }}" name="author" required/></li>
+            <li><input type = "text" value= "{{ $blog->title }}" name="title" required/></li>
+            <li><textarea name="post" required>{{ $blog->post }}</textarea></li>
             <li>{{ $blog->created_at }}</li>
             <input type="submit" value="update">
         </div>

@@ -38,6 +38,12 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'author' => 'required',
+            'title' => 'required',
+            'post' => 'required'
+        ]);
+
         Blog::create(request(['author','title','post']));
         return redirect('blog');
     }
