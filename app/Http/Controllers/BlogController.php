@@ -80,6 +80,12 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
+        request()->validate([
+            'author' => 'required',
+            'title' => 'required',
+            'post' => 'required'
+        ]);
+
         $blog->update(request(['author','title','post']));
 
         return redirect('blog');

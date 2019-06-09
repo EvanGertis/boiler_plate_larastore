@@ -18,4 +18,11 @@
         {{ csrf_field() }}
         <input type="submit" value="delete"/>
     </form>
+    <div class="danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
 @endsection
