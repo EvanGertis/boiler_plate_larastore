@@ -18,6 +18,7 @@
                 <input type="submit" >
             </div>
 
+            @if ($errors->any())
             <div class="danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -25,6 +26,7 @@
                     @endforeach
                 </ul>
             </div>
+            @endif
         </form>
 
 @endsection

@@ -18,6 +18,7 @@
         {{ csrf_field() }}
         <input type="submit" value="delete"/>
     </form>
+    @if ($errors->any())
     <div class="danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -25,4 +26,5 @@
             @endforeach
         </ul>
     </div>
+    @endif
 @endsection
