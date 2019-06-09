@@ -38,12 +38,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        Blog::create([
-            'author' => request('author'),
-            'title' => request('title'),
-            'post' => request('post')
-        ]);
-
+        Blog::create(request(['author','title','post']));
         return redirect('blog');
     }
 
@@ -79,11 +74,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        $blog->update([
-            'author' => request('author'),
-            'title' => request('title'),
-            'post' => request('post')
-        ]);
+        $blog->update(request(['author','title','post']));
 
         return redirect('blog');
     }
