@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/blog', 'BlogController@index');
 Route::get('/contact', 'ContactController@index');
+Route::post('/sendMail', 'ContactController@sendMail');
 Route::get('/schedule', 'ScheduleController@index');
 Route::get('/gallery', 'GalleryController@index');
 
