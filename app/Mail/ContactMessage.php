@@ -16,9 +16,9 @@ class ContactMessage extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(array $data)
     {
-        //
+        $this->contactMessage = $data;
     }
 
     /**
@@ -28,6 +28,6 @@ class ContactMessage extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.project-created');
+        return $this->markdown('email.project-created')->from($this->contactMessage['email'])->with($this->contactMessage);
     }
 }

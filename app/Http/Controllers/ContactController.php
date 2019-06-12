@@ -28,7 +28,7 @@ class ContactController extends Controller
             'message' => ['required', 'min:3']
         ]);
 
-        Mail::to("physevangertis@gmail.com")->send(new ContactMessage($request));
+        Mail::to(env('MAIL_TO_ADDRESS'))->send(new ContactMessage($request->input()));
 
         return redirect('/contact');
     }
