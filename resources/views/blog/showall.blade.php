@@ -2,7 +2,14 @@
 
 @section('content')
     <h1>Blog Page</h1>
-    <a href="{{ route('blog.create') }}">Create new blog post</a>
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+    </ul>
+    @if(auth()->id() == 1)
+        <a href="{{ route('blog.create') }}">Create new blog post</a>
+    @endif
     <ul>
         @foreach($blogs as $blog)
             <div class = "card">

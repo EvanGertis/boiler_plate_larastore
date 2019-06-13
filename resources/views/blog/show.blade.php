@@ -4,7 +4,9 @@
     <h1>Blog Page</h1>
     <ul>
         <div class = "card">
-            <li><a href= "{{$blog->id}}/edit">Edit post</a></li>
+            @if(auth()->id() == 1)
+                <li><a href= "{{$blog->id}}/edit">Edit post</a></li>
+            @endif
             <li>{{ $blog->author }}</li>
             <li>{{ $blog->title }}</li>
             <li>{{ $blog->post }}</li>
