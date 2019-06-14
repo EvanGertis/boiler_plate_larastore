@@ -15,6 +15,7 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::all();
+
         return  view('blog.showall', compact('blogs'));
     }
 
@@ -25,12 +26,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        if(auth()->id() == "1"){
-            return view('/blog/create');
-        }
-        else {
-            return redirect('blog')->withErrors("You are unable to create a post.");
-        }
+
+        return view('/blog/create');
     }
 
     /**
@@ -46,9 +43,9 @@ class BlogController extends Controller
             'title' => ['required', 'min:3'],
             'post' => ['required', 'min:3']
         ]);
-        if(auth()->id() == "1"){
-            Blog::create($attributes);
-        }
+
+        Blog::create($attributes);
+
         return redirect('blog');
     }
 
@@ -71,11 +68,9 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        if(auth()->id() == "1"){
-            return view('blog.edit', compact('blog'));
-        } else {
-            return redirect('/blog')->withErrors("You don't have access to do that.");
-        }
+        $this->authorize('edit', $blog);
+
+        return view('blog.edit', compact('blog'));
     }
 
     /**
@@ -87,19 +82,17 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        if(auth()->id() == "1"){
-            $attributes = request()->validate([
-                'author' => ['required', 'min:3'],
-                'title' => ['required', 'min:3'],
-                'post' => ['required', 'min:3']
-            ]);
+        $this->authorize('update', $blog);
 
-            $blog->update($attributes);
+        $attributes = request()->validate([
+            'author' => ['required', 'min:3'],
+            'title' => ['required', 'min:3'],
+            'post' => ['required', 'min:3']
+        ]);
 
-            return redirect('blog');
-        } else {
-            return redirect('/blog')->withErrors("You don't have access to do that.");
-        }
+        $blog->update($attributes);
+
+        return redirect('blog');
     }
 
     /**
@@ -110,11 +103,10 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        if(auth()->id() == "1"){
-            $blog->delete();
-            return redirect('/blog');
-        } else {
-            return redirect('/blog')->withErrors("You don't have access to do that.");
-        }
+        $this->authorize('delete', $blog);
+
+        $blog->delete();
+
+        return redirect('/blog');
     }
 }
