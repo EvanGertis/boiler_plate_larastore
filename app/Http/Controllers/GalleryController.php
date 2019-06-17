@@ -26,7 +26,7 @@ class GalleryController extends Controller
     public function create()
     {
 
-        return view('gallery/create');
+        return view('/gallery/create');
     }
 
     /**
@@ -37,7 +37,9 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->file('image')->store('gallery-photos');
+
+        return redirect('gallery');
     }
 
     /**

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form action="/gallery-photos" method="post" >
+    <form action="/gallery" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
 
         <input type="file" name="image"/>
