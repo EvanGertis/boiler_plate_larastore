@@ -26,7 +26,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-
+        $this->authorize('create');
         return view('/blog/create');
     }
 
