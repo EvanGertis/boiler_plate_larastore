@@ -37,7 +37,9 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        request()->file('image')->store('gallery-photos');
+        $file = request()->file('image');
+        $ext = $file->extension();
+        $file->storeAs('gallery-photos/'.auth()->id(), 'gallery-image.'.$ext);
 
         return redirect('gallery');
     }
