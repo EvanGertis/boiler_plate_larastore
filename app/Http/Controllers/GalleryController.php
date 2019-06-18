@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -14,8 +15,9 @@ class GalleryController extends Controller
     public function index()
     {
 
+        $images = \File::files('C:\ecom\app\storage\app\gallery-photos');
 
-        return view('/gallery/show');
+        return view('/gallery/show', compact('images'));
     }
 
     /**
