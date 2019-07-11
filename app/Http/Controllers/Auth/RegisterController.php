@@ -21,7 +21,8 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    // uncomment to bring back registration
+    // use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
